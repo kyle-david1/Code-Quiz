@@ -2,51 +2,37 @@
 // do I need to do this since javascript is already linked for bootstrap
 
 // variable for local storage log 
-var startButton = document.querySelector ("#start");
-var scoreForm = $('input-group');
+var startButton = document.querySelector ("#start-btn");
+var questionContainerElement = document.querySelector ('#questions');
 
+startButton.addEventListener('click', startGame)
 
-// Activity 6 Third party APIs
-// I dont know what this would look like
-startButton.addEventListener("click", function() {
-    if
-)};
-
-function handleFormSubmit(event) {
-    event.preventDefault();
-var scoreForm = $('input[name="formSubmit"]').val();
-if (!scoreForm) {
-    console.log('No name and score entered!');
-    return;
+function startGame() {
+    console.log('Started')
+    startButton.classList.add('hide')
+    questionContainerElement.classList.remove('hide')
+    setNextQuestion()
 }
-inputGroupEl.append(<div> + scoreForm + </div>);
+
+function setNextQuestion () {
 
 }
 
+function selectAnswer () {
 
+}
 
-
-
-// landing page with start button 
-// when start button is clicked, remove welcome msg and append question 1 
-    // add event listener button 
-        // activity 12
-// start timer
-    // javascript counter method idk
-// user answers question - read chosen element, data value, compare to answer key 
-// create an array for all of the questions
-        // youll have ch
 var questions = [
     {
-        prompt: "How is an object notated in JS?\n(a) Curly Brackets\n\(b) Square Brackets\n\(c) Single Quotations\(d) Double Quotations",
+        question: "How is an object notated in JS?\n(a) Curly Brackets\n\(b) Square Brackets\n\(c) Single Quotations\(d) Double Quotations",
         answer: "a"
     },
     {
-        prompt: "Which of these is not a primitive type in JS?\n(a) String\n\(b) Number\n\(c) Boolean \n(d) Date",
+        question: "Which of these is not a primitive type in JS?\n(a) String\n\(b) Number\n\(c) Boolean \n(d) Date",
         answer: "d"
     },
     {   
-        prompt: "Justify-Content Property is used in conjunction with...?\n(a) Cards\n\(b) mediaQuery\n\(c) flexbox\n(d) HTML",
+        question: "Justify-Content Property is used in conjunction with...?\n(a) Cards\n\(b) mediaQuery\n\(c) flexbox\n(d) HTML",
         answer: "c"
     }
 ]
@@ -62,6 +48,43 @@ for(var i=0; i < questions.length; i++){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// landing page with start button 
+// when start button is clicked, remove welcome msg and append question 1 
+    // add event listener button 
+        // activity 12
+// start timer
+    // javascript counter method idk
+// user answers question - read chosen element, data value, compare to answer key 
+// create an array for all of the questions
+        // youll have ch
+
+
+
+var scoreForm = $('#final-score');
+
+
+// Activity 6 Third party APIs
+// I dont know what this would look like
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+var scoreForm = $('input[name="formSubmit"]').val();
+if (!scoreForm) {
+    console.log('No name and score entered!');
+    return;
+}
+inputGroupEl.append(#score-form + scoreForm + </div>);
 
 
     // if (userAnswer === correctAnswer)
