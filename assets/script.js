@@ -10,41 +10,109 @@ startButton.addEventListener('click', startGame)
 function startGame() {
     console.log('Started')
     startButton.classList.add('hide')
-    questionContainerElement.classList.remove('hide')
+    document.getElementById('start-screen').style.display = 'none'
     setNextQuestion()
 }
 
 function setNextQuestion () {
-
+    var nextQuestion = Math.floor(Math.random() * 3);
+    console.log(nextQuestion)
+    document.getElementById('question').style.display = ''
+    document.getElementById('question-display').innerHTML = questions[nextQuestion].question
+    document.getElementById('answer_1').innerHTML = questions[nextQuestion].answers[0]
+    document.getElementById('answer_2').innerHTML = questions[nextQuestion].answers[1]
+    document.getElementById('answer_3').innerHTML = questions[nextQuestion].answers[2]
+    document.getElementById('answer_4').innerHTML = questions[nextQuestion].answers[3]
 }
 
-function selectAnswer () {
+
+
+function selectAnswer (selection) {
+    console.log("selection")
 
 }
 
 var questions = [
     {
-        question: "How is an object notated in JS?\n(a) Curly Brackets\n\(b) Square Brackets\n\(c) Single Quotations\(d) Double Quotations",
-        answer: "a"
+        question: "How is an object notated in JS?",
+        answers: [
+            'Curly Brackets',
+            'Square Brackets',
+            'Single Quotations',
+            'Double Quotations',
+        ],
+        correctAnswer: 0,
+        selectedAnswer: 0
+
     },
+
     {
-        question: "Which of these is not a primitive type in JS?\n(a) String\n\(b) Number\n\(c) Boolean \n(d) Date",
-        answer: "d"
+        question: "Which of these is not a primitive type in JS?",
+        answers: [
+            'String',
+            'Number',
+            'Boolean',
+            'Date',
+        ],
+        correctAnswer: 3, 
+        selectedAnswer: 0
+
     },
-    {   
-        question: "Justify-Content Property is used in conjunction with...?\n(a) Cards\n\(b) mediaQuery\n\(c) flexbox\n(d) HTML",
-        answer: "c"
-    }
+
+    {
+        question: "Justify-Content Property is used in conjunction with...?",
+        answers: [
+            'Cards',
+            'Media Query',
+            'Flexbox',
+            'HTML',
+        ],
+        correctAnswer: 2,
+        selectedAnswer: 0
+
+    },
+
+    // {
+    //     question: "How is an object notated in JS?",
+    //     answers: [
+    //         'Curly Brackets',
+    //         'Square Brackets',
+    //         'Single Quotations',
+    //         'Double Quotations',
+    //     ],
+    //     correctAnswer: 0
+
+    // },
+
+    // {
+    //     question: "How is an object notated in JS?",
+    //     answers: [
+    //         'Curly Brackets',
+    //         'Square Brackets',
+    //         'Single Quotations',
+    //         'Double Quotations',
+    //     ],
+    //     correctAnswer: 0
+
+    // },
+    // {
+    //     question: "Which of these is not a primitive type in JS?\n(a) String\n\(b) Number\n\(c) Boolean \n(d) Date",
+    //     answer: "d"
+    // },
+    // {   
+    //     question: "Justify-Content Property is used in conjunction with...?\n(a) Cards\n\(b) mediaQuery\n\(c) flexbox\n(d) HTML",
+    //     answer: "c"
+    // }
 ]
-var score = 0 
+// var score = 0 
 
-for(var i=0; i < questions.length; i++){
-    var response = window.prompt(questions[i].prompt);
-    if(response == questions[i].answer){
-        score++
-    }
+// for(var i=0; i < questions.length; i++){
+//     var response = window.prompt(questions[i].prompt);
+//     if(response == questions[i].answer){
+//         score++
+//     }
 
-}
+
 
 
 
@@ -77,14 +145,14 @@ var scoreForm = $('#final-score');
 // Activity 6 Third party APIs
 // I dont know what this would look like
 
-function handleFormSubmit(event) {
-    event.preventDefault();
-var scoreForm = $('input[name="formSubmit"]').val();
-if (!scoreForm) {
-    console.log('No name and score entered!');
-    return;
-}
-inputGroupEl.append(#score-form + scoreForm + </div>);
+// function handleFormSubmit(event) {
+//     event.preventDefault();
+// var scoreForm = $('input[name="formSubmit"]').val();
+// if (!scoreForm) {
+//     console.log('No name and score entered!');
+//     return;
+// }
+// inputGroupEl.append(#score-form + scoreForm + </div>);
 
 
     // if (userAnswer === correctAnswer)
@@ -103,7 +171,7 @@ inputGroupEl.append(#score-form + scoreForm + </div>);
     // add up user score
     // display input for my user to type their name 
     // second html and display username and score - read object from local storage /activity 24
-    localStorage.addItem("")
+    // localStorage.addItem("")
 
 
 
