@@ -9,6 +9,8 @@ Select Answers in the radio buttons, and manually log score to be added to the l
 
 The selecting and deslecting answers functions stumped me and I got assistance from a friend in the industry
 
+Javascript needs further debugging to append each of the questions after the start button is clicked
+
 
 Collaborators:
 ## Sara Baqla

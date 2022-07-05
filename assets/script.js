@@ -1,6 +1,6 @@
-const quizQuestions = [
+const quizData = [
     {
-        question: "A for-loop is used to iterate over:"
+        question: "A for-loop is used to iterate over:",
         a: "An object", 
         b: "An Array",
         c: "A function",
@@ -8,15 +8,15 @@ const quizQuestions = [
         correct: "b",
     },
     {
-        question: "How is an object notated in JS?"
+        question: "How is an object notated in JS?",
         a: "Curly Brackest",
-        b: "Square Brackets"
+        b: "Square Brackets",
         c: "Single Quotations",
         d: "Double Quotations",
         correct: "a",
     },
     {
-        question: "Which is not a primitive type in JS?"
+        question: "Which is not a primitive type in JS?",
         a: "String",
         b: "Number",
         c: "Boolean",
@@ -25,7 +25,7 @@ const quizQuestions = [
 
     },
     {
-        question: "Justify-content property is used in conjunction with?"
+        question: "Justify-content property is used in conjunction with?",
         a: "Cards",
         b: "Media Query",
         c: "Flexbox",
@@ -33,13 +33,13 @@ const quizQuestions = [
         correct: "c",
     },
     {
-        question: "What does Const keyword mean?"
+        question: "What does Const keyword mean?",
         a: "unchangeable",
         b: "changeable",
         c: "interchangeable",
         d: "undefined",
         correct: "a",
-    }
+    },
 ];
 // defined as constants to autopopulate into function 
 const quiz = document.getElementById('quiz')
@@ -50,7 +50,7 @@ const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
-const startBtn = document.getElementById('start')
+// const startBtn = document.getElementById('start')
 
 let currentQuiz = 0
 let score = 0
@@ -72,20 +72,51 @@ function loadQuiz() {
 }
 
 function deselectAnswers() {
-    answerEls.forEach(answerEls => answerEls.checked = false)
+    answerEls.forEach(answerEl => answerEl.checked = false)
 }
 
 function getSelected() {
-    var answerEls
+    var answer
     answerEls.forEach(answerEl => {
-        if(answerEls.checked) {
+        if(answerEl.checked) {
             answer = answerEl.id
         }
     })
     return answer
 }
 
-submitBtn.addEventListener('click', ())
+// startBtn.addEventListener('click', () =>{
+//     const start = getSelected()
+//     if(start = 'click') {
+//         (quizData.
+//     }
+   
+// });
+
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected()
+    if(answer) {
+        if(answer === quizData[currentQuiz].correct) {
+            score ++
+        }
+   
+        currentQuiz++
+
+        if(currentQuiz < quizData.length) {
+            loadQuiz()
+        // }   else {
+        //     quiz.innerHTML =
+        //     <h2>Questions $(score)/$(quizData.length) correct</h2>
+
+        //     <button onclick="location.reload()">Reload</button>
+
+             
+        }
+
+    }
+})
+
+
     
 
 
