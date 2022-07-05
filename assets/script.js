@@ -1,118 +1,96 @@
-// variable for start button event listener
-// do I need to do this since javascript is already linked for bootstrap
-
-// variable for local storage log 
-var startButton = document.querySelector ("#start-btn");
-var questionContainerElement = document.querySelector ('#questions');
-
-startButton.addEventListener('click', startGame)
-
-function startGame() {
-    console.log('Started')
-    startButton.classList.add('hide')
-    document.getElementById('start-screen').style.display = 'none'
-    setNextQuestion()
-}
-
-function setNextQuestion () {
-    var nextQuestion = Math.floor(Math.random() * 3);
-    console.log(nextQuestion)
-    document.getElementById('question').style.display = ''
-    document.getElementById('question-display').innerHTML = questions[nextQuestion].question
-    document.getElementById('answer_1').innerHTML = questions[nextQuestion].answers[0]
-    document.getElementById('answer_2').innerHTML = questions[nextQuestion].answers[1]
-    document.getElementById('answer_3').innerHTML = questions[nextQuestion].answers[2]
-    document.getElementById('answer_4').innerHTML = questions[nextQuestion].answers[3]
-}
-
-
-
-function selectAnswer (selection) {
-    console.log("selection")
-
-}
-
-var questions = [
+const quizQuestions = [
     {
-        question: "How is an object notated in JS?",
-        answers: [
-            'Curly Brackets',
-            'Square Brackets',
-            'Single Quotations',
-            'Double Quotations',
-        ],
-        correctAnswer: 0,
-        selectedAnswer: 0
+        question: "A for-loop is used to iterate over:"
+        a: "An object", 
+        b: "An Array",
+        c: "A function",
+        d: "A variable",
+        correct: "b",
+    },
+    {
+        question: "How is an object notated in JS?"
+        a: "Curly Brackest",
+        b: "Square Brackets"
+        c: "Single Quotations",
+        d: "Double Quotations",
+        correct: "a",
+    },
+    {
+        question: "Which is not a primitive type in JS?"
+        a: "String",
+        b: "Number",
+        c: "Boolean",
+        d: "Date",
+        correct: "d",
 
     },
-
     {
-        question: "Which of these is not a primitive type in JS?",
-        answers: [
-            'String',
-            'Number',
-            'Boolean',
-            'Date',
-        ],
-        correctAnswer: 3, 
-        selectedAnswer: 0
-
+        question: "Justify-content property is used in conjunction with?"
+        a: "Cards",
+        b: "Media Query",
+        c: "Flexbox",
+        d: "HTML",
+        correct: "c",
     },
-
     {
-        question: "Justify-Content Property is used in conjunction with...?",
-        answers: [
-            'Cards',
-            'Media Query',
-            'Flexbox',
-            'HTML',
-        ],
-        correctAnswer: 2,
-        selectedAnswer: 0
+        question: "What does Const keyword mean?"
+        a: "unchangeable",
+        b: "changeable",
+        c: "interchangeable",
+        d: "undefined",
+        correct: "a",
+    }
+];
+// defined as constants to autopopulate into function 
+const quiz = document.getElementById('quiz')
+const answerEls = document.querySelectorAll('.answer')
+const questionEl = document.getElementById('question')
+const a_text = document.getElementById('a_text')
+const b_text = document.getElementById('b_text')
+const c_text = document.getElementById('c_text')
+const d_text = document.getElementById('d_text')
+const submitBtn = document.getElementById('submit')
+const startBtn = document.getElementById('start')
 
-    },
+let currentQuiz = 0
+let score = 0
 
-    // {
-    //     question: "How is an object notated in JS?",
-    //     answers: [
-    //         'Curly Brackets',
-    //         'Square Brackets',
-    //         'Single Quotations',
-    //         'Double Quotations',
-    //     ],
-    //     correctAnswer: 0
+loadQuiz()
 
-    // },
+function loadQuiz() {
 
-    // {
-    //     question: "How is an object notated in JS?",
-    //     answers: [
-    //         'Curly Brackets',
-    //         'Square Brackets',
-    //         'Single Quotations',
-    //         'Double Quotations',
-    //     ],
-    //     correctAnswer: 0
+    deselectAnswers()
 
-    // },
-    // {
-    //     question: "Which of these is not a primitive type in JS?\n(a) String\n\(b) Number\n\(c) Boolean \n(d) Date",
-    //     answer: "d"
-    // },
-    // {   
-    //     question: "Justify-Content Property is used in conjunction with...?\n(a) Cards\n\(b) mediaQuery\n\(c) flexbox\n(d) HTML",
-    //     answer: "c"
-    // }
-]
-// var score = 0 
+    const currentQuizData = quizData[currentQuiz]
 
-// for(var i=0; i < questions.length; i++){
-//     var response = window.prompt(questions[i].prompt);
-//     if(response == questions[i].answer){
-//         score++
-//     }
+    questionEl.innerText = currentQuizData.question
+    a_text.innerText = currentQuizData.a
+    b_text.innerText = currentQuizData.b
+    c_text.innerText = currentQuizData.c
+    d_text.innerText = currentQuizData.d
+
+}
+
+function deselectAnswers() {
+    answerEls.forEach(answerEls => answerEls.checked = false)
+}
+
+function getSelected() {
+    var answerEls
+    answerEls.forEach(answerEl => {
+        if(answerEls.checked) {
+            answer = answerEl.id
+        }
+    })
+    return answer
+}
+
+submitBtn.addEventListener('click', ())
+    
 
 
+
+  
 
 
 
@@ -139,7 +117,7 @@ var questions = [
 
 
 
-var scoreForm = $('#final-score');
+// var scoreForm = $('#final-score');
 
 
 // Activity 6 Third party APIs
@@ -183,14 +161,3 @@ var scoreForm = $('#final-score');
 
 
 
-    //     GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score
