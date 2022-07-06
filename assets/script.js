@@ -50,15 +50,23 @@ const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
-// const startBtn = document.getElementById('start')
+const startBtn = document.getElementById('start')
+const timerEl = document.getElementById('time')
 
-let currentQuiz = 0
-let score = 0
 
-loadQuiz()
+let currentQuiz = 0;
+let score = 0;
+var timeId;
+var time = 75;
+
+function startQuiz(){
+    console.log('Start Button Clicked'); 
+}
 
 function loadQuiz() {
-
+    console.log('Start Button Clicked');
+    timeId = setInterval(startTimer, 1000);
+    timerEl.textContent = time;
     deselectAnswers()
 
     const currentQuizData = quizData[currentQuiz]
@@ -69,6 +77,12 @@ function loadQuiz() {
     c_text.innerText = currentQuizData.c
     d_text.innerText = currentQuizData.d
 
+}
+
+function startTimer(){
+    time--;
+
+    timerEl.textContent = time;
 }
 
 function deselectAnswers() {
@@ -116,7 +130,7 @@ submitBtn.addEventListener('click', () => {
     }
 })
 
-
+startBtn.onclick = loadQuiz;
     
 
 
@@ -167,20 +181,31 @@ submitBtn.addEventListener('click', () => {
     // if (userAnswer === correctAnswer)
         // next question
   
-    // some kind of HTML elements to present the questions (radio buttons)
-// if correct go to next question 
-    // confirm form submission
-    // eventlistener
+    
 
 
 
 
-    // if incorrect subtract 10 secs from timer 
-// end of quiz
+   
     // add up user score
     // display input for my user to type their name 
     // second html and display username and score - read object from local storage /activity 24
     // localStorage.addItem("")
+
+    // to store the scores on the score page 
+    // look at ins form element section 5 
+
+
+
+    // function handleFormSubmit(event) {
+    //     event.preventDefault()
+
+    //     var listItem = $('input[name="score-input"]').val()
+    //     if(!listItem)
+    //         console.log('no initials and score entered')
+    // }
+
+    // scoreInputEl.append('<li>' + listItem + '</li>');
 
 
 
